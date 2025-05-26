@@ -7,7 +7,7 @@
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    background-color: var(--color-gray);
+    background-color: var(--color-bg);
 }
 
 .logo {
@@ -124,4 +124,10 @@
 .navLink:focus::after,
 .navLink.active::after {
     width: 100%;
+}
+
+@media (min-width: 768px) {
+    .header {
+        padding: 4rem 8rem;
+    }
 }

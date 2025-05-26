@@ -1,0 +1,117 @@
+.hero {
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background: linear-gradient(to top, rgba(30, 35, 38, .8), rgba(30, 35, 38, 1)), url("../assets/bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-size: cover;
+}
+
+.heroImageContainer {
+    min-width: 15rem;
+    max-width: 30rem;
+    width: 70%;
+}
+
+.heroImage {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: .5rem solid #fff;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.heroTextContainer {
+    padding: 0 2rem;
+    width: 100%;
+    text-align: center;
+}
+
+.heroTitle {
+    margin-bottom: 1rem;
+    font-size: 4rem;
+    color: #fff;
+}
+
+.heroTitleName {
+    font-size: 4.2rem;
+    color: var(--color-light-red);
+}
+
+.heroSubtitle {
+    font-size: 2rem;
+    color: #fff;
+}
+
+.role {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--color-light-red);
+}
+
+.heroLinks {
+    margin-top: 2rem;
+    display: flex;
+    gap: 4rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.heroLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    color: #fff;
+    font-size: 2.4rem;
+    background-color: var(--gray);
+    border: 2px solid var(--color-light-red);
+    border-radius: 50%;
+    transition: all .5s ease;
+}
+
+.heroLink:hover {
+    color: var(--color-light-red);
+    border-color: #fff;
+}
+
+@media (min-width: 768px) {
+    .hero {
+        flex-direction: row-reverse;
+        justify-content: space-around;
+    }
+
+    .heroImageContainer {
+        width: 20%;
+        min-width: 20rem;
+        max-width: 40rem;
+    }
+
+    .heroTextContainer {
+        padding: 0 0 0 4rem;
+        width: max-content;
+    }
+
+    .heroTitle {
+        font-size: 6rem;
+    }
+
+    .heroTitleName {
+        font-size: 8rem;
+    }
+
+    .heroSubtitle {
+        font-size: 3rem;
+    }
+
+    .role {
+        font-size: 3.6rem;
+    }
+}
