@@ -4,6 +4,7 @@ import { FaRegUser, FaFilePdf } from "react-icons/fa";
 import { FaUser } from "react-icons/fa6";
 import SectionTitle from "../components/SectionTitle";
 import styles from "../styles/AboutMe.module.css";
+import cvPDF from '../assets/MarioDanielDiazCV.pdf';
 
 const container = {
   hidden: {},
@@ -65,7 +66,7 @@ export default function AboutMe() {
 
         <motion.a
           className={styles.btnDownloadCV}
-          href="../assets/MarioDanielDiazCV.pdf"
+          href={cvPDF}
           download="Mario Daniel Díaz CV.pdf"
           variants={itemUp}
         >
