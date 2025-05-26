@@ -1,6 +1,7 @@
 import AboutMe from "./layout/AboutMe";
 import Header from "./layout/Header";
 import Hero from "./layout/Hero";
+import Skills from "./layout/Skills";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <main>
         <Hero />
         <AboutMe />
+        <Skills />
       </main>
       <footer></footer>
     </>

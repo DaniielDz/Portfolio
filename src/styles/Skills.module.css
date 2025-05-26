@@ -1,0 +1,100 @@
+.skillsList {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.skill {
+    padding: 1rem 2rem;
+    height: 8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    background: #252A2E;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    transition: all .5s ease;
+}
+
+.skill_title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, .3);
+    transition: all .5s ease;
+}
+
+.skill:hover {
+    -webkit-box-shadow: 0px 0px 10px 0px var(--color-light-red);
+    -moz-box-shadow: 0px 0px 10px 0px var(--color-light-red);
+    box-shadow: 0px 0px 10px 0px var(--color-light-red);
+    animation: horizontal-shaking .2s linear;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    animation-name: horizontal-shaking;
+    animation-timeline: auto;
+    animation-range-start: normal;
+    animation-range-end: normal;
+}
+
+.icon {
+    font-size: 6rem;
+    color: var(--color-light-red);
+}
+
+.skill:hover .icon {
+    color: var(--color-light-red);
+    transform: scale(1.04);
+}
+
+.skill:hover .skill_title {
+    color: #fff;
+}
+
+@keyframes horizontal-shaking {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(5px);
+    }
+
+    50% {
+        transform: translateX(-5px);
+    }
+
+    75% {
+        transform: translateX(5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@media (min-width: 768px) {
+    .skills {
+        width: 85%;
+        margin: 0 auto;
+    }
+    .skillsList {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media (min-width: 1024px) {
+    .skillsList {
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+@media (min-width: 1440px) {
+    .skillsList {
+        grid-template-columns: repeat(5,1fr);
+    }
+}
