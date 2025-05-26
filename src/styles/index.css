@@ -40,3 +40,18 @@ a {
 ul {
   list-style: none;
 }
+
+section {
+  padding: 0 2rem;
+}
+
+section:first-child {
+  padding: 0;
+}
+
+.sectionTitle {
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin: 10rem 0 3rem;
+  color: #fff;
+}

@@ -26,8 +26,8 @@ function Hero() {
               loop={true}
               cursor
               cursorStyle="|"
-              typeSpeed={100}
-              deleteSpeed={50}
+              typeSpeed={200}
+              deleteSpeed={150}
               delaySpeed={1500}
             />
           </span>

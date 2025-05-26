@@ -1,0 +1,131 @@
+.description {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    color: #fff;
+}
+
+.btnDownloadCV {
+    width: max-content;
+    display: block;
+    margin: 5rem 0 10rem;
+    padding: 1.5rem 2rem;
+    position: relative;
+    font-size: 2rem;
+    color: #fff;
+    background: var(--color-gray);
+    box-shadow: 0px 0px 10rem 0px var(--color-light-red);
+    overflow: hidden;
+    z-index: 10;
+}
+
+.btnDownloadCV::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    margin: auto;
+    width: 0;
+    height: 0;
+    border-left: 10rem solid var(--color-light-red);
+    border-top: 5rem solid transparent;
+    border-bottom: 5rem solid transparent;
+    z-index: -1;
+    opacity: 0.6;
+    transition: all .5s ease;
+}
+
+.btnDownloadCV:hover::before {
+    border-left: 40rem solid var(--color-light-red);
+}
+
+.bars {
+    position: absolute;
+    background: #fff;
+    transition: all .5s ease;
+}
+
+.bars:nth-child(1) {
+    width: 10%;
+    height: .2rem;
+}
+
+.bars:nth-child(2) {
+    width: .2rem;
+    height: 30%;
+}
+
+.bars:nth-child(1),
+.bars:nth-child(2) {
+    top: 0;
+    left: 0;
+}
+
+.bars:nth-child(3) {
+    width: .2rem;
+    height: 30%;
+}
+
+.bars:nth-child(4) {
+    width: 10%;
+    height: .2rem;
+}
+
+.bars:nth-child(3),
+.bars:nth-child(4) {
+    bottom: 0;
+    right: 0;
+}
+
+.btnDownloadCV:hover .bars:nth-child(1),
+.btnDownloadCV:hover .bars:nth-child(4) {
+    width: 100%;
+}
+
+.btnDownloadCV:hover .bars:nth-child(2),
+.btnDownloadCV:hover .bars:nth-child(3) {
+    height: 100%;
+}
+
+.data__title {
+    font-size: 2.4rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: #fff;
+}
+
+.information__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 3rem;
+    list-style: none;
+    color: #fff;
+}
+
+.information__item {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+    gap: 1rem;
+}
+
+.information__item span {
+    color: var(--color-light-red);
+    font-weight: 600;
+}
+
+@media (min-width: 768px) {
+    .aboutMe {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 8rem;
+    }
+    .aboutMe__content, .data__content {
+        width: 40%;
+    }
+}

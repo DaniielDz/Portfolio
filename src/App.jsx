@@ -1,3 +1,4 @@
+import AboutMe from "./layout/AboutMe";
 import Header from "./layout/Header";
 import Hero from "./layout/Hero";
 
@@ -7,6 +8,7 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <AboutMe />
       </main>
       <footer></footer>
     </>
