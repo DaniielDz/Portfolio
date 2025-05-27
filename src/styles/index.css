@@ -44,10 +44,14 @@ ul {
 
 section {
   padding: 0 2rem;
+  max-width: 144rem;
+  margin: 0 auto;
 }
 
 section:first-child {
   padding: 0;
+  max-width: 100%;
+  margin: 0;
 }
 
 .sectionTitle {
