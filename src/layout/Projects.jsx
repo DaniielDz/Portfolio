@@ -13,6 +13,8 @@ import ibradnzCalcImg from "../assets/projects/IbradnzCalculator.png";
 import costCalcImg from "../assets/projects/BPCostCalculator.png";
 import timeConverterImg from "../assets/projects/TimeZoneConverter.png";
 import homeCostHubImg from "../assets/projects/HomeCostHub.png";
+import { motion } from "framer-motion";
+
 
 function Projects() {
   const fiverrProjects = [
@@ -95,7 +97,13 @@ function Projects() {
   ];
 
   return (
-    <section>
+    <motion.section
+      id="projects"
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeInOut" }}
+      viewport={{ once: true, amount: 0.2 }}
+    >
       <SectionTitle title={"Portafolios"} />
       <ProjectsContainer
         icon={<TbBrandFiverr className={styles.icon} />}
@@ -109,7 +117,7 @@ function Projects() {
         styles={styles}
         projects={personalProjects}
       />
-    </section>
+    </motion.section>
   );
 }
 

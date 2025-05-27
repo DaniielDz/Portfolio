@@ -3,7 +3,7 @@ import SectionTitle from "../components/SectionTitle";
 import styles from "../styles/Skills.module.css";
 import React from "react";
 import {
-    SiBootstrap,
+  SiBootstrap,
   SiCss3,
   SiExpress,
   SiGit,
@@ -24,7 +24,7 @@ const container = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.1,
+      staggerChildren: 0.2,
     },
   },
 };
@@ -35,7 +35,7 @@ const item = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.4, ease: "easeOut" },
+    transition: { duration: 0.8, ease: "easeInOut" },
   },
 };
 
@@ -49,7 +49,7 @@ function Skills() {
     { icon: <SiExpress />, title: "Express.js" },
     { icon: <SiCss3 />, title: "CSS" },
     { icon: <SiTailwindcss />, title: "Tailwind" },
-    { icon: <SiBootstrap/>, title: "Bootstrap" },
+    { icon: <SiBootstrap />, title: "Bootstrap" },
     { icon: <SiSass />, title: "Sass" },
     { icon: <SiMysql />, title: "MySQL" },
     { icon: <SiPostgresql />, title: "PostgresSQL" },
@@ -60,18 +60,17 @@ function Skills() {
 
   return (
     <motion.section
+      id="skills"
       className={styles.skills}
       variants={container}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: false, amount: 0.3 }}
+      viewport={{ once: false, amount: 0.1 }}
     >
-      {/* 1) Título */}
       <motion.div variants={item}>
         <SectionTitle title="Habilidades" />
       </motion.div>
 
-      {/* 2) Lista de skills */}
       <motion.ul className={styles.skillsList}>
         {skills.map((skill, idx) => (
           <motion.li className={styles.skill} key={idx} variants={item}>

@@ -6,10 +6,11 @@ import useResponsive from "../hooks/useResponsive";
 function Header() {
   const isMobile = useResponsive();
   const links = [
-    { name: "Sobre Mí", href: "#" },
-    { name: "Skills", href: "#" },
-    { name: "Portafolios", href: "#" },
-    { name: "Contacto", href: "#" },
+    { name: "Portafolios", href: "#projects" },
+    { name: "Sobre Mí", href: "#aboutMe" },
+    { name: "Habilidades", href: "#skills" },
+    { name: "Educación", href: "#education" },
+    { name: "Contacto", href: "#contact" },
   ];
 
   return (

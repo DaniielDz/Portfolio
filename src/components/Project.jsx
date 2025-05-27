@@ -1,8 +1,15 @@
+import { motion } from "framer-motion";
 import { FaCode, FaRegEye } from "react-icons/fa";
 
 function Project({ styles, title, subtitle, imageUrl, demoUrl, codeUrl }) {
   return (
-    <div className={styles.project}>
+    <motion.div
+      className={styles.project}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: false, amount: 0.4 }}
+    >
       <a
         href={demoUrl}
         target="_blank"
@@ -35,7 +42,7 @@ function Project({ styles, title, subtitle, imageUrl, demoUrl, codeUrl }) {
           Demo <FaRegEye color="#fff" />
         </a>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

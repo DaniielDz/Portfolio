@@ -1,0 +1,121 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+.card {
+    height: 25.8rem;
+    padding: 2.5rem;
+    background: var(--color-gray);
+    position: relative;
+    transition: all ease .5s;
+    color: #fff;
+}
+
+.content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.bar {
+    position: absolute;
+    background: var(--color-light-red);
+}
+
+.bar:nth-child(1),
+.bar:nth-child(3),
+.bar:nth-child(5) {
+    height: .5rem;
+    width: 15%;
+    left: 0;
+}
+
+.bar:nth-child(1) {
+    top: 0;
+}
+
+.bar:nth-child(3) {
+    bottom: 0;
+}
+
+.bar:nth-child(5) {
+    bottom: 0;
+    left: auto;
+    right: 0;
+}
+
+.bar:nth-child(2),
+.bar:nth-child(4),
+.bar:nth-child(6) {
+    width: .5rem;
+    height: 25%;
+    left: 0;
+}
+
+.bar:nth-child(2) {
+    top: 0;
+}
+
+.bar:nth-child(4) {
+    bottom: 0;
+}
+
+.bar:nth-child(6) {
+    bottom: 0;
+    left: auto;
+    right: 0;
+}
+
+.title {
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+.institution {
+    font-size: 1.9rem;
+    font-weight: 600;
+}
+
+.date {
+    font-size: 1.4rem;
+}
+
+.description {
+    font-size: 1.4rem;
+}
+
+.institution,
+.date {
+    color: var(--color-light-red);
+}
+
+.institution,
+.date,
+.description {
+    display: block;
+}
+
+.icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 4rem;
+    color: var(--color-light-red);
+}
+
+@media (min-width: 768px) {
+    .container {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 8rem;
+    }
+    .card {
+        width: 48rem;
+    }
+}

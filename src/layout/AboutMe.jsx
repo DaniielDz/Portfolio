@@ -37,7 +37,7 @@ const itemLeft = {
 
 export default function AboutMe() {
   return (
-    <section className={styles.aboutMe} id="sobre-mi">
+    <section className={styles.aboutMe} id="aboutMe">
       {/* 1) Contenedor “Sobre Mí” */}
       <motion.div
         className={styles.aboutMe__content}

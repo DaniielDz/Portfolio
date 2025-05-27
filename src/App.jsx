@@ -1,4 +1,5 @@
 import AboutMe from "./layout/AboutMe";
+import Education from "./layout/Education";
 import Header from "./layout/Header";
 import Hero from "./layout/Hero";
 import Projects from "./layout/Projects";
@@ -10,9 +11,10 @@ function App() {
       <Header />
       <main>
         <Hero />
+        <Projects />
         <AboutMe />
         <Skills />
-        <Projects />
+        <Education />
       </main>
       <footer></footer>
     </>
