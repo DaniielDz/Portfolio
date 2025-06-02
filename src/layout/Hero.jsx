@@ -34,17 +34,17 @@ function Hero() {
         </p>
         <ul className={styles.heroLinks}>
           <li>
-            <a href="#" target="_blank" className={styles.heroLink}>
+            <a href="https://github.com/DaniielDz" target="_blank" className={styles.heroLink}>
               <FaGithub />
             </a>
           </li>
           <li>
-            <a href="#" target="_blank" className={styles.heroLink}>
+            <a href="https://www.linkedin.com/in/daniiel-diazz/" target="_blank" className={styles.heroLink}>
               <FaLinkedin/>
             </a>
           </li>
           <li>
-            <a href="#" target="_blank" className={styles.heroLink}>
+            <a href="https://www.fiverr.com/daniieldz?public_mode=true" target="_blank" className={styles.heroLink}>
               <TbBrandFiverr />
             </a>
           </li>

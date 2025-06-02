@@ -10,7 +10,6 @@ function Header() {
     { name: "Sobre Mí", href: "#aboutMe" },
     { name: "Habilidades", href: "#skills" },
     { name: "Educación", href: "#education" },
-    { name: "Contacto", href: "#contact" },
   ];
 
   return (
