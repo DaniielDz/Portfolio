@@ -13,6 +13,7 @@ import ibradnzCalcImg from "../assets/projects/IbradnzCalculator.png";
 import costCalcImg from "../assets/projects/BPCostCalculator.png";
 import timeConverterImg from "../assets/projects/TimeZoneConverter.png";
 import homeCostHubImg from "../assets/projects/HomeCostHub.png";
+import menuyaImg from "../assets/projects/menuya.png";
 import { motion } from "framer-motion";
 
 
@@ -88,12 +89,19 @@ function Projects() {
 
   const personalProjects = [
     {
+      title: "MenuYa",
+      subtitle:
+        "SaaS para restaurantes que permite crear menús digitales interactivos y recibir pedidos directamente por WhatsApp. Incluye panel de administración de menús, página pública del restaurante y sistema de suscripciones premium",
+      imageUrl: menuyaImg,
+      demoUrl: "https://menuya.online/",
+    },
+    {
       title: "HomeCostHub",
       subtitle:
-        "Web desarrollada con Next.js y Tailwind CSS, con backend en PostgreSQL. Ofrece +1.000 calculadoras para estimar costos de remodelaciones, reparaciones e instalaciones en función del código postal. Proporciona precios actualizados para materiales, mano de obra y plazos de proyecto, e incluye una mortgage calculator.",
+        "Plataforma web con +1.000 calculadoras que estiman costos de mejoras en el hogar en EE.UU. según ZIP code. Implementé lógica dinámica, filtros y visualizaciones interactivas de datos. Stack: Next.js, TypeScript, Supabase, Tailwind CSS, Recharts, Vercel.",
       imageUrl: homeCostHubImg,
       demoUrl: "https://homecosthub.com/",
-    },
+    }
   ];
 
   return (
