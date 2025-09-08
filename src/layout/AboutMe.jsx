@@ -4,7 +4,7 @@ import { FaRegUser, FaFilePdf } from "react-icons/fa";
 import { FaUser } from "react-icons/fa6";
 import SectionTitle from "../components/SectionTitle";
 import styles from "../styles/AboutMe.module.css";
-import cvPDF from '../assets/MarioDanielDiazCV.pdf';
+import cvPDF from '../assets/CV - Mario Daniel Diaz.pdf';
 
 const container = {
   hidden: {},
