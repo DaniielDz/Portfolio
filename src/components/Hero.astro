@@ -1,0 +1,69 @@
+---
+import { Image } from 'astro:assets';
+import { SITE } from '~/data/site';
+import portrait from '~/assets/image.jpg';
+import Icon from './Icon.astro';
+import styles from './Hero.module.css';
+---
+
+<section class={styles.hero}>
+  <div class={styles.glow} aria-hidden="true" />
+
+  <div class={`container ${styles.inner}`}>
+    <div class={styles.text}>
+      <p class={styles.eyebrow}>
+        <span class={styles.dot} aria-hidden="true" />
+        Disponible para proyectos
+      </p>
+
+      <h1 class={styles.title}>
+        Hola, soy <span class={styles.name}>Daniel Díaz</span>
+      </h1>
+
+      <p class={styles.role}>{SITE.role}</p>
+
+      <p class={styles.lead}>
+        Diseño y desarrollo APIs REST, sistemas distribuidos y arquitecturas
+        orientadas a eventos. Me interesa el software que degrada bien: el que
+        sigue funcionando cuando un servicio se cae o la carga se dispara.
+      </p>
+
+      <div class={styles.actions}>
+        <a class="btn btn--primary" href="#proyectos">Ver proyectos</a>
+        <a class="btn btn--ghost" href="#contacto">Hablemos</a>
+      </div>
+
+      <ul class={styles.social}>
+        {
+          SITE.social.map((s) => (
+            <li>
+              <a
+                class={styles.socialLink}
+                href={s.href}
+                target="_blank"
+                rel="me noopener noreferrer"
+                title={s.name}
+              >
+                <Icon name={s.icon} size={16} />
+                <span>{s.name}</span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <div class={styles.portraitWrap}>
+      <div class={styles.portraitRing} aria-hidden="true" />
+      <Image
+        src={portrait}
+        alt={`Retrato de ${SITE.name}`}
+        class={styles.portrait}
+        width={608}
+        height={608}
+        loading="eager"
+        quality={80}
+      />
+    </div>
+  </div>
+</section>

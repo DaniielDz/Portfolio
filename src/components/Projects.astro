@@ -1,0 +1,129 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import Icon from './Icon.astro';
+import styles from './Projects.module.css';
+
+const all = await getCollection('projects');
+
+/**
+ * Orden editorial.
+ *
+ * La version anterior arrancaba con nueve calculadoras de Fiverr y dejaba
+ * MenuYa y HomeCostHub al final, que es justo al reves de como se lee un
+ * portfolio. Ahora se abre con lo mas diferencia —un sistema distribuido y una
+ * app mobile— y los encargos quedan agrupados al final, en formato compacto
+ * para no robarle espacio a lo que importa.
+ */
+const GROUPS = [
+  {
+    kind: 'arquitectura',
+    title: 'Backend y arquitectura',
+    note: 'Sistemas donde la complejidad está en el diseño, no en la pantalla.',
+  },
+  {
+    kind: 'producto',
+    title: 'Productos propios',
+    note: 'Productos que diseñé, construí y puse en producción.',
+  },
+  { kind: 'movil', title: 'Mobile', note: 'Fuera del navegador.' },
+  {
+    kind: 'cliente',
+    title: 'Encargos para clientes',
+    note: 'Proyectos privados desarrollados de forma freelance en Fiverr.',
+  },
+] as const;
+
+const projects = [...all].sort(
+  (a, b) => Number(b.data.featured) - Number(a.data.featured) || b.data.year - a.data.year,
+);
+---
+
+<section id="proyectos" class="section section--tinted">
+  <div class="container">
+    <h2 class="section-title">Proyectos</h2>
+    <p class="section-intro">
+      Lo que más me importa no es cuántos proyectos tengo, sino qué problema
+      resuelve cada uno. Estos son los recientes.
+    </p>
+
+    {
+      GROUPS.map((group) => {
+        const items = projects.filter((p) => p.data.category === group.kind);
+        if (items.length === 0) return null;
+        const compact = group.kind === 'cliente';
+        return (
+          <div class={styles.group}>
+            <div class={styles.groupHead}>
+              <h3 class={styles.groupTitle}>{group.title}</h3>
+              <p class={styles.groupNote}>{group.note}</p>
+            </div>
+
+            <ul class={compact ? styles.gridCompact : styles.grid}>
+              {items.map((p) => (
+                <li class={`reveal ${styles.card}`}>
+                  {p.data.screenshot && !compact && (
+                    <div class={styles.media}>
+                      <Image
+                        src={p.data.screenshot}
+                        alt={`Captura de ${p.data.title}`}
+                        layout="constrained"
+                        widths={[400, 640, 900]}
+                        sizes="(min-width: 1200px) 380px, (min-width: 700px) 45vw, 92vw"
+                        fit="cover"
+                        quality={70}
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+
+                  <div class={styles.body}>
+                    <div class={styles.titleRow}>
+                      <h4 class={styles.title}>{p.data.title}</h4>
+                      <span class={styles.year}>{p.data.year}</span>
+                    </div>
+                    <p class={styles.summary}>{p.data.summary}</p>
+
+                    {p.data.highlights.length > 0 && !compact && (
+                      <ul class={styles.highlights}>
+                        {p.data.highlights.map((h) => (
+                          <li class={styles.highlight}>
+                            <span class={styles.bullet} aria-hidden="true" />
+                            {h}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+
+                    {p.data.stack.length > 0 && (
+                      <ul class={styles.stack}>
+                        {p.data.stack.map((s) => (
+                          <li class={styles.chip}>{s}</li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+
+                  <div class={styles.links}>
+                    {p.data.demoUrl && (
+                      <a class={styles.link} href={p.data.demoUrl} target="_blank" rel="noopener noreferrer">
+                        <Icon name="eye" size={14} />
+                        Demo
+                      </a>
+                    )}
+                    {p.data.codeUrl && (
+                      <a class={styles.link} href={p.data.codeUrl} target="_blank" rel="noopener noreferrer">
+                        <Icon name="code" size={14} />
+                        Código
+                      </a>
+                    )}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      })
+    }
+  </div>
+</section>

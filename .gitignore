@@ -12,6 +12,15 @@ dist
 dist-ssr
 *.local
 
+# Cache de herramientas
+.astro
+.vercel
+node_modules/.cache
+
+# Los .range son metadata intermediaria de scripts/fetch-fonts.mjs; los .woff2
+# si se versionan, los .range no.
+public/fonts/*.range
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

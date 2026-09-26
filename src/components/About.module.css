@@ -1,0 +1,123 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-7);
+  align-items: start;
+}
+
+@media (width >= 900px) {
+  .grid {
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr);
+    gap: var(--sp-9);
+  }
+}
+
+.prose {
+  display: grid;
+  gap: var(--sp-4);
+  max-width: 60ch;
+  color: var(--c-text-muted);
+}
+
+.prose p:first-child {
+  font-size: var(--fs-lg);
+  color: var(--c-text);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-6);
+}
+
+.card {
+  padding: var(--sp-5);
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg);
+}
+
+.cardTitle {
+  margin-bottom: var(--sp-4);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--c-text-faint);
+}
+
+.details {
+  display: grid;
+  gap: var(--sp-4);
+  margin: 0;
+}
+
+.detail {
+  display: grid;
+  gap: var(--sp-1);
+}
+
+.detail dt {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-text-faint);
+}
+
+.detail dt :global(svg) {
+  color: var(--c-accent);
+}
+
+.detail dd {
+  margin: 0;
+  font-size: var(--fs-sm);
+  overflow-wrap: anywhere;
+}
+
+.detail dd a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--c-border-strong);
+  transition: text-decoration-color var(--dur) var(--ease);
+}
+
+.detail dd a:hover {
+  text-decoration-color: var(--c-accent);
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-3);
+  margin-top: var(--sp-4);
+}
+
+.stat {
+  display: grid;
+  gap: var(--sp-1);
+  padding: var(--sp-4) var(--sp-3);
+  text-align: center;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+}
+
+.statValue {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--c-accent);
+  line-height: 1.1;
+}
+
+.statLabel {
+  font-size: var(--fs-xs);
+  color: var(--c-text-faint);
+  text-wrap: balance;
+}

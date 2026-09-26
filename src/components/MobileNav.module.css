@@ -1,0 +1,113 @@
+.root {
+  display: block;
+}
+
+@media (width >= 768px) {
+  .root {
+    display: none;
+  }
+}
+
+.toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0.5rem;
+  background: none;
+  border: 1px solid var(--c-border-strong);
+  border-radius: var(--radius);
+  transition: border-color var(--dur) var(--ease);
+}
+
+.toggle:hover {
+  border-color: var(--c-accent);
+}
+
+.bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--c-text);
+  border-radius: 2px;
+  transition:
+    transform var(--dur) var(--ease),
+    opacity var(--dur) var(--ease);
+}
+
+/* El estado se controla con [data-open] en el contenedor, no con clases
+   duplicadas por elemento. */
+.root:has(.panel[data-open='true']) .bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.root:has(.panel[data-open='true']) .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.root:has(.panel[data-open='true']) .bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgb(0 0 0 / 0.5);
+  animation: fade var(--dur) var(--ease);
+}
+
+.backdrop[hidden] {
+  display: none;
+}
+
+.panel {
+  position: fixed;
+  top: var(--header-h);
+  right: 0;
+  left: 0;
+  background: var(--c-bg-raise);
+  border-bottom: 1px solid var(--c-border);
+  box-shadow: 0 1.5rem 2.5rem rgb(0 0 0 / 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-0.75rem);
+  transition:
+    opacity var(--dur) var(--ease),
+    transform var(--dur) var(--ease),
+    visibility var(--dur);
+}
+
+.panel[data-open='true'] {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.list {
+  padding: var(--sp-2) var(--container-pad) var(--sp-5);
+}
+
+.link {
+  display: block;
+  padding-block: var(--sp-3);
+  font-size: var(--fs-base);
+  font-weight: 500;
+  border-bottom: 1px solid var(--c-border);
+}
+
+.list li:last-child .link {
+  border-bottom: none;
+}
+
+.link:hover,
+.link:focus-visible {
+  color: var(--c-accent);
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+}

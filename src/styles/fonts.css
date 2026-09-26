@@ -1,0 +1,56 @@
+/* ==========================================================================
+   Self-hosted fonts
+   ==========================================================================
+
+   Familias variables: un archivo por familia+estilo+subset con el eje wght
+   completo, asi que todos los pesos salen del mismo download.
+
+   Solo se incluye el subset `latin`. El sitio esta en espanol y cada caracter
+   del idioma (n-tilde, vocales acentuadas, i-exclamada e interrogada) cae en
+   el rango Latin-1 que ese subset ya cubre. Sumar `latin-ext` costs 58 KB sin
+   aportar ni un glifo a la pagina; si alguna vez hace falta, se agrega el
+   subset en scripts/fetch-fonts.mjs y se corre de nuevo.
+
+   Origen: Google Fonts, via scripts/fetch-fonts.mjs. Licencia SIL Open Font
+   License 1.1.
+
+   Total en la pagina: ~77 KB, contra ~135 KB con los dos subsets y ~200 KB
+   del sitio anterior, que ademas los pedia a fonts.googleapis.com.
+   ========================================================================== */
+
+/* Work Sans — cuerpo de texto --------------------------------------------- */
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/work-sans-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Work Sans';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/work-sans-italic-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Oswald — titulos y wordmark -------------------------------------------- */
+
+@font-face {
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url('/fonts/oswald-normal-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+    U+2212, U+2215, U+FEFF, U+FFFD;
+}

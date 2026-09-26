@@ -1,0 +1,4 @@
+Users-agent: *
+Allow: /
+
+Sitemap: https://daniieldz.dev/sitemap-index.xml

@@ -1,0 +1,49 @@
+---
+import { SITE } from '~/data/site';
+import Icon from './Icon.astro';
+import styles from './Contact.module.css';
+
+const year = new Date().getFullYear();
+---
+
+<footer id="contacto" class={styles.footer}>
+  <div class="container">
+    <div class={styles.top}>
+      <div class={styles.pitch}>
+        <h2 class={styles.title}>¿Tenés un proyecto en mente?</h2>
+        <p class={styles.text}>
+          Escribime y contame qué necesitás. Respondo en 24 h.
+        </p>
+        <a class="btn btn--primary" href={`mailto:${SITE.email}`}>
+          <Icon name="mail" size={16} />
+          {SITE.email}
+        </a>
+      </div>
+
+      <nav class={styles.socials} aria-label="Redes sociales">
+        {
+          SITE.social.map((s) => (
+            <a
+              class={styles.socialLink}
+              href={s.href}
+              target="_blank"
+              rel="me noopener noreferrer"
+            >
+              <Icon name={s.icon} size={18} />
+              <span>{s.name}</span>
+              <Icon name="external" size={13} class={styles.external} />
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+
+    <div class={styles.bottom}>
+      <p>&copy; {year} {SITE.name}</p>
+      <p class={styles.built}>
+        Construido con <a href="https://astro.build" target="_blank" rel="noopener noreferrer">Astro</a>
+        · Hospedado en Vercel
+      </p>
+    </div>
+  </div>
+</footer>
