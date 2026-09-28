@@ -1,0 +1,77 @@
+header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgb(20 24 27 / 0.85);
+  border-bottom: 1px solid var(--c-border);
+  /* Compensa el fondo semitransparente al hacer scroll. */
+  backdrop-filter: blur(12px);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-5);
+  min-height: var(--header-h);
+}
+
+.logo {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+.logoText {
+  color: var(--c-text);
+}
+
+.logoAccent {
+  color: var(--c-accent);
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2.2vw, 2rem);
+}
+
+.navLink {
+  position: relative;
+  padding-block: 0.35rem;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--c-text-muted);
+  transition: color var(--dur) var(--ease);
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--c-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur) var(--ease);
+}
+
+.navLink:hover,
+.navLink:focus-visible {
+  color: var(--c-text);
+}
+
+.navLink:hover::after,
+.navLink:focus-visible::after {
+  transform: scaleX(1);
+}
+
+@media (width < 768px) {
+  .nav {
+    display: none;
+  }
+}

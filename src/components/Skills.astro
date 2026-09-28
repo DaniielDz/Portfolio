@@ -1,0 +1,30 @@
+---
+import { SKILL_GROUPS } from '~/data/site';
+import styles from './Skills.module.css';
+---
+
+<section id="habilidades" class="section">
+  <div class="container">
+    <h2 class="section-title">Habilidades</h2>
+    <p class="section-intro">
+      El stack con el que trabajo hoy, agrupado por dominio. Antes era una lista
+      plana de 15 items con icono y una animacion de shake al hover; agruparla
+      muestra mejor donde estan los limites de cada area.
+    </p>
+
+    <div class={styles.grid}>
+      {
+        SKILL_GROUPS.map((group) => (
+          <div class={`reveal ${styles.group}`}>
+            <h3 class={styles.groupTitle}>{group.title}</h3>
+            <ul class={styles.list}>
+              {group.items.map((item) => (
+                <li class={styles.item}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

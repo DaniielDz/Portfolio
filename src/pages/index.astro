@@ -1,0 +1,46 @@
+---
+import BaseLayout from '~/layouts/BaseLayout.astro';
+import Header from '~/components/Header.astro';
+import Hero from '~/components/Hero.astro';
+import About from '~/components/About.astro';
+import Projects from '~/components/Projects.astro';
+import Skills from '~/components/Skills.astro';
+import Education from '~/components/Education.astro';
+import Contact from '~/components/Contact.astro';
+---
+
+<BaseLayout>
+  <a href="#contenido" class="skip">Saltar al contenido</a>
+  <Header />
+  <main id="contenido">
+    <Hero />
+    <Projects />
+    <About />
+    <Skills />
+    <Education />
+  </main>
+  <Contact />
+</BaseLayout>
+
+<style>
+  .skip {
+    position: absolute;
+    left: -9999px;
+    z-index: 100;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #fff;
+    background: var(--c-accent);
+    border-radius: 0 0 var(--radius) 0;
+  }
+
+  .skip:focus {
+    left: 0;
+    top: 0;
+  }
+
+  main {
+    display: block;
+  }
+</style>

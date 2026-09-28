@@ -1,0 +1,67 @@
+.list {
+  position: relative;
+  display: grid;
+  gap: var(--sp-6);
+  max-width: 44rem;
+}
+
+/* Linea vertical de la timeline. */
+.list::before {
+  content: '';
+  position: absolute;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 0.4375rem;
+  width: 1px;
+  background: var(--c-border);
+}
+
+.item {
+  position: relative;
+  padding-left: var(--sp-6);
+}
+
+.marker {
+  position: absolute;
+  top: 0.35rem;
+  left: 0;
+  width: 0.875rem;
+  height: 0.875rem;
+  background: var(--c-bg);
+  border: 2px solid var(--c-border-strong);
+  border-radius: 50%;
+  transition: border-color var(--dur) var(--ease);
+}
+
+.item:hover .marker {
+  border-color: var(--c-accent);
+}
+
+.content {
+  display: grid;
+  gap: var(--sp-2);
+}
+
+.period {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--c-accent);
+}
+
+.degree {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+}
+
+.institution {
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--c-text-muted);
+}
+
+.detail {
+  font-size: var(--fs-sm);
+  color: var(--c-text-faint);
+}

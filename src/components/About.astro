@@ -1,0 +1,94 @@
+---
+import { SITE } from '~/data/site';
+import Icon from './Icon.astro';
+import styles from './About.module.css';
+
+interface Detail {
+  icon: 'mail' | 'pin' | 'globe';
+  label: string;
+  value: string;
+  /** Si esta presente, el valor se renderiza como link. */
+  href?: string;
+}
+
+const details: Detail[] = [
+  { icon: 'mail', label: 'Email', value: SITE.email, href: `mailto:${SITE.email}` },
+  { icon: 'pin', label: 'Ubicación', value: `${SITE.location.city}, ${SITE.location.country}` },
+  {
+    icon: 'globe',
+    label: 'Idiomas',
+    value: SITE.languages.map((l) => `${l.name} (${l.level.toLowerCase()})`).join(', '),
+  },
+];
+---
+
+<section id="sobre-mi" class="section">
+  <div class="container">
+    <div class={styles.grid}>
+      <div class="reveal">
+        <h2 class="section-title">Sobre mí</h2>
+
+        <div class={styles.prose}>
+          <p>
+            Soy ingeniero de software backend. Empecé de Técnico Programador y
+            sigo con la Licenciatura en Ciencias de la Computación, pero lo que
+            más me enseñó fueron los proyectos: tres años freelance en Fiverr
+            con clientes internacionales y, más adelante, sistemas distribuidos
+            y productos completos que lancé al mercado.
+          </p>
+          <p>
+            Me centro en el diseño de sistemas: desacoplar servicios, manejar
+            el trabajo asíncrono con colas, y diseñar APIs que no se rompen
+            cuando llega tráfico de verdad. PixelForge es el ejemplo más claro:
+            encolar el trabajo pesado en vez de ejecutarlo en el request.
+          </p>
+          <p>
+            También me importa launches productos enteros al mercado. HomeCostHub
+            y MenuYa están en producción con usuarios reales.
+          </p>
+          <p>
+            Busco incorporarme a un equipo backend donde pueda aplicar esto y
+            seguir creciendo, en un entorno donde se valoren la calidad del
+            código, la mejora continua y las decisiones técnicas justificadas.
+          </p>
+        </div>
+
+        <div class={styles.actions}>
+          <a class="btn btn--primary" href="/cv/Daniel-Diaz-CV.pdf" download>
+            <Icon name="download" size={16} />
+            Descargar CV
+          </a>
+          <a class="btn btn--ghost" href={`mailto:${SITE.email}`}>
+            <Icon name="mail" size={16} />
+            Escribime
+          </a>
+        </div>
+      </div>
+
+      <aside class="reveal">
+        <div class={styles.card}>
+          <h3 class={styles.cardTitle}>Datos</h3>
+          <dl class={styles.details}>
+            {
+              details.map((d) => (
+                <div class={styles.detail}>
+                  <dt>
+                    <Icon name={d.icon} size={15} />
+                    {d.label}
+                  </dt>
+                  <dd>
+                    {d.href ? (
+                      <a href={d.href}>{d.value}</a>
+                    ) : (
+                      d.value
+                    )}
+                  </dd>
+                </div>
+              ))
+            }
+          </dl>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

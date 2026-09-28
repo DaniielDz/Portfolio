@@ -1,0 +1,26 @@
+---
+import { EDUCATION } from '~/data/site';
+import styles from './Education.module.css';
+---
+
+<section id="educacion" class="section section--tinted">
+  <div class="container">
+    <h2 class="section-title">Educación</h2>
+
+    <ol class={styles.list}>
+      {
+        EDUCATION.map((item) => (
+          <li class={`reveal ${styles.item}`}>
+            <div class={styles.marker} aria-hidden="true" />
+            <div class={styles.content}>
+              <p class={styles.period}>{item.period}</p>
+              <h3 class={styles.degree}>{item.degree}</h3>
+              <p class={styles.institution}>{item.institution}</p>
+              <p class={styles.detail}>{item.detail}</p>
+            </div>
+          </li>
+        ))
+      }
+    </ol>
+  </div>
+</section>

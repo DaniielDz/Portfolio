@@ -1,0 +1,87 @@
+---
+import { NAV_LINKS } from '~/data/site';
+import styles from './MobileNav.module.css';
+
+/**
+ * Menu movil, sin framework.
+ *
+ * Esto estuvo brevemente como island de React, pero un `client:load` arrastra
+ * el runtime de react-dom completo: 225 KB de JS para un boton hamburguesa.
+ * Con 30 lineas de script nativo el menu abre al instante y la pagina no
+ * descarga framework alguno.
+ *
+ * La integracion de React sigue activa en astro.config.mjs para lo que
+ * realmente lo necesite; solo este componente dejo de usarla.
+ */
+---
+
+<div class={styles.root}>
+  <button
+    type="button"
+    class={styles.toggle}
+    aria-expanded="false"
+    aria-controls="mobile-nav"
+    aria-label="Abrir menú"
+    data-menu-toggle
+  >
+    <span class={styles.bar}></span>
+    <span class={styles.bar}></span>
+    <span class={styles.bar}></span>
+  </button>
+
+  <div class={styles.backdrop} data-menu-backdrop hidden></div>
+
+  <div id="mobile-nav" class={styles.panel} data-menu-panel>
+    <nav aria-label="Navegación móvil">
+      <ul class={styles.list}>
+        {
+          NAV_LINKS.map((link) => (
+            <li>
+              <a class={styles.link} href={link.href} data-menu-link>
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</div>
+
+<script>
+  const toggle = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const panel = document.querySelector<HTMLElement>('[data-menu-panel]');
+  const backdrop = document.querySelector<HTMLElement>('[data-menu-backdrop]');
+
+  if (toggle && panel && backdrop) {
+    const links = panel.querySelectorAll<HTMLAnchorElement>('[data-menu-link]');
+    let open = false;
+
+    const setOpen = (next: boolean) => {
+      open = next;
+      panel.dataset.open = String(open);
+      backdrop.hidden = !open;
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      document.body.style.overflow = open ? 'hidden' : '';
+    };
+
+    toggle.addEventListener('click', () => setOpen(!open));
+    backdrop.addEventListener('click', () => setOpen(false));
+    links.forEach((l) => l.addEventListener('click', () => setOpen(false)));
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && open) {
+        setOpen(false);
+        toggle.focus();
+      }
+    });
+
+    // Si el viewport crece a desktop con el panel abierto, hay que limpiar el
+    // lock de scroll o el body queda inmovilizado.
+    const mq = window.matchMedia('(min-width: 768px)');
+    mq.addEventListener('change', (e) => {
+      if (e.matches) setOpen(false);
+    });
+  }
+</script>

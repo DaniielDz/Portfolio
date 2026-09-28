@@ -1,0 +1,181 @@
+.hero {
+  position: relative;
+  /* svh en vez de vh: con 100vh la barra de direcciones del movil mobila el
+     contenido en cada scroll. El commit abb9d01 habia cambiado dvh -> vh. */
+  min-height: calc(100svh - var(--header-h));
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Reemplaza al bg.jpg de stock (137 KB, sin atribucion ni licencia). */
+.glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(60% 55% at 78% 18%, rgb(244 63 63 / 0.16), transparent 70%),
+    radial-gradient(45% 45% at 12% 85%, rgb(56 189 248 / 0.09), transparent 70%),
+    linear-gradient(180deg, var(--c-bg) 0%, var(--c-bg-raise) 100%);
+}
+
+/* Grano sutil via feTurbulence inline: 0 bytes de asset. */
+.glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-7);
+  align-items: center;
+  padding-block: var(--sp-8);
+}
+
+@media (width >= 900px) {
+  .inner {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+    gap: var(--sp-9);
+  }
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 0.35rem 0.85rem;
+  margin-bottom: var(--sp-5);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+  background: var(--c-accent-soft);
+  border: 1px solid rgb(244 63 63 / 0.25);
+  border-radius: 999px;
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--c-accent);
+  border-radius: 50%;
+  animation: pulse 2.4s var(--ease) infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgb(244 63 63 / 0.5);
+  }
+  50% {
+    opacity: 0.7;
+    box-shadow: 0 0 0 0.35rem rgb(244 63 63 / 0);
+  }
+}
+
+.title {
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: var(--fs-3xl);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.name {
+  color: var(--c-accent);
+}
+
+.role {
+  margin-top: var(--sp-3);
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: var(--fs-lg);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--c-text-muted);
+}
+
+.lead {
+  max-width: 52ch;
+  margin-top: var(--sp-5);
+  color: var(--c-text-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-top: var(--sp-6);
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-2);
+  margin-top: var(--sp-6);
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--c-border);
+}
+
+/* Los botones de antes eran circulos con solo icono y sin aria-label, lo que
+   los dejaba inaccesibles y ademas tenian background: var(--gray) con una
+   variable que nunca se definio. */
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: 0.45rem 0.9rem;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-radius: 999px;
+  transition:
+    border-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+.socialLink:hover {
+  color: var(--c-accent);
+  border-color: var(--c-accent);
+}
+
+.portraitWrap {
+  position: relative;
+  justify-self: center;
+  max-width: 22rem;
+}
+
+.portraitRing {
+  position: absolute;
+  inset: -1rem;
+  border: 1px solid rgb(244 63 63 / 0.3);
+  border-radius: 50%;
+  /* Anillo en esquinas, sin imagen. */
+  rotate: 45deg;
+}
+
+.portrait {
+  position: relative;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 1.5rem 3rem rgb(0 0 0 / 0.45);
+}
+
+@media (width < 900px) {
+  .portraitWrap {
+    order: -1;
+    max-width: 15rem;
+  }
+}

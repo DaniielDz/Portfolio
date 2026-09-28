@@ -1,0 +1,30 @@
+---
+import { NAV_LINKS, SITE } from '~/data/site';
+import MobileNav from './MobileNav.astro';
+import styles from './Header.module.css';
+---
+
+<header class={styles.header}>
+  <div class={`container ${styles.inner}`}>
+    <a href="/" class={styles.logo} aria-label={`${SITE.name} — inicio`}>
+      <span class={styles.logoText}>{SITE.shortName}</span>
+      <span class={styles.logoAccent}>.</span>
+    </a>
+
+    <nav class={styles.nav} aria-label="Navegación principal">
+      <ul class={styles.navList}>
+        {
+          NAV_LINKS.map((link) => (
+            <li>
+              <a class={styles.navLink} href={link.href}>
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+
+    <MobileNav />
+  </div>
+</header>
