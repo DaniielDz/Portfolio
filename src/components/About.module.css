@@ -90,34 +90,3 @@
 .detail dd a:hover {
   text-decoration-color: var(--c-accent);
 }
-
-.stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--sp-3);
-  margin-top: var(--sp-4);
-}
-
-.stat {
-  display: grid;
-  gap: var(--sp-1);
-  padding: var(--sp-4) var(--sp-3);
-  text-align: center;
-  background: var(--c-surface);
-  border: 1px solid var(--c-border);
-  border-radius: var(--radius);
-}
-
-.statValue {
-  font-family: var(--font-display), system-ui, sans-serif;
-  font-size: var(--fs-lg);
-  font-weight: 600;
-  color: var(--c-accent);
-  line-height: 1.1;
-}
-
-.statLabel {
-  font-size: var(--fs-xs);
-  color: var(--c-text-faint);
-  text-wrap: balance;
-}

@@ -11,9 +11,9 @@ const all = await getCollection('projects');
  *
  * La version anterior arrancaba con nueve calculadoras de Fiverr y dejaba
  * MenuYa y HomeCostHub al final, que es justo al reves de como se lee un
- * portfolio. Ahora se abre con lo mas diferencia —un sistema distribuido y una
- * app mobile— y los encargos quedan agrupados al final, en formato compacto
- * para no robarle espacio a lo que importa.
+ * portfolio. Ahora se abre con lo mas diferencia (un sistema distribuido y
+ * productos propios) y los encargos quedan agrupados al final, en formato
+ * compacto para no robarle espacio a lo que importa.
  */
 const GROUPS = [
   {
@@ -26,7 +26,6 @@ const GROUPS = [
     title: 'Productos propios',
     note: 'Productos que diseñé, construí y puse en producción.',
   },
-  { kind: 'movil', title: 'Mobile', note: 'Fuera del navegador.' },
   {
     kind: 'cliente',
     title: 'Encargos para clientes',

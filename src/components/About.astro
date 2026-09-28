@@ -1,5 +1,5 @@
 ---
-import { SITE, STATS } from '~/data/site';
+import { SITE } from '~/data/site';
 import Icon from './Icon.astro';
 import styles from './About.module.css';
 
@@ -44,8 +44,7 @@ const details: Detail[] = [
           </p>
           <p>
             También me importa launches productos enteros al mercado. HomeCostHub
-            y MenuYa están en producción con usuarios reales, y DuoRating es una
-            app mobile publicada en Google Play.
+            y MenuYa están en producción con usuarios reales.
           </p>
           <p>
             Busco incorporarme a un equipo backend donde pueda aplicar esto y
@@ -89,17 +88,6 @@ const details: Detail[] = [
             }
           </dl>
         </div>
-
-        <ul class={styles.stats}>
-          {
-            STATS.map((s) => (
-              <li class={styles.stat}>
-                <span class={styles.statValue}>{s.value}</span>
-                <span class={styles.statLabel}>{s.label}</span>
-              </li>
-            ))
-          }
-        </ul>
       </aside>
     </div>
   </div>

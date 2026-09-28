@@ -119,10 +119,3 @@ export const EDUCATION = [
       'Egresé como Técnico Programador con formación en desarrollo de software, bases de datos y redes.',
   },
 ] as const;
-
-/** Cifras de la seccion de metricas. Verificar contra GitHub antes de publicar. */
-export const STATS = [
-  { value: '27', label: 'repos públicos' },
-  { value: '3+', label: 'años en Fiverr' },
-  { value: '1.000+', label: 'calculadoras en HomeCostHub' },
-] as const;

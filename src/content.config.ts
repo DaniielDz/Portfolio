@@ -26,7 +26,7 @@ const projects = defineCollection({
        * Grupo de la seccion. El orden del objeto define el orden en pagina:
        * primero lo mas diferencia, despues productos, al final los encargos.
        */
-      category: z.enum(['arquitectura', 'producto', 'movil', 'cliente']),
+      category: z.enum(['arquitectura', 'producto', 'cliente']),
       /** Descate en la seccion. */
       featured: z.boolean().default(false),
       /** URL del repositorio. */
